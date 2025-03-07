@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gavin Cardeno</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevents horizontal scroll */
+        }
+
+        /* Slide-In Animation */
+        @keyframes slideInFromRight {
+            from {
+                transform: translateX(130%); /* Start off-screen to the right */
+                opacity: 0;
+                visibility: hidden; /* Hide elements initially */
+            }
+            to {
+                transform: translateX(0); /* Slide to original position */
+                opacity: 1;
+                visibility: visible; /* Make elements visible after the animation */
+            }
+        }
+
+        /* Center Content */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* Profile Picture */
+        .profile-pic {
+            display: block;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            border: 1.5x solid white;
+            width: 145px;
+            height: auto;
+            opacity: 0; /* Initially hidden */
+            visibility: hidden; /* Initially hidden */
+            animation: slideInFromRight 1.5s ease-out 0s forwards; /* Slide in immediately */
+        }
+
+        /* Name Styling */
+        .name {
+            font-size: 38px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            opacity: 0; /* Initially hidden */
+            visibility: hidden; /* Initially hidden */
+            animation: slideInFromRight 1.5s ease-out 0.5s forwards; /* 0.5s delay */
+        }
+
+        /* Paragraph Styles */
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+            opacity: 0; /* Initially hidden */
+            visibility: hidden; /* Initially hidden */
+            animation: slideInFromRight 1.5s ease-out 1s forwards; /* 1s delay */
+        }
+
+        /* Resume Button */
+        .resume-btn {
+            display: inline-block;
+            background-color: #00aaff;
+            color: white;
+            padding: 12px 20px;
+            border: .5px solid white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            transition: background 0.3s ease-in-out;
+            margin: 20px 0; /* Add space before and after */
+            opacity: 0; /* Initially hidden */
+            visibility: hidden; /* Initially hidden */
+            animation: slideInFromRight 1.5s ease-out 1.5s forwards; /* 1.5s delay */
+        }
+
+        .resume-btn:hover {
+            background-color: #0077cc;
+            border: 3px solid white;
+        }
+
+        /* Projects Section */
+        .projects {
+            opacity: 0; /* Initially hidden */
+            visibility: hidden; /* Initially hidden */
+            animation: slideInFromRight 1.5s ease-out 2s forwards; /* 2s delay */
+        }
+
+        /* Contact Section */
+        .contact {
+            opacity: 0; /* Initially hidden */
+            visibility: hidden; /* Initially hidden */
+            animation: slideInFromRight 1.5s ease-out 2.5s forwards; /* 3.5s delay */
+        }
+
+        /* Header Animations */
+        h2 {
+            opacity: 1; /* Initially hidden */
+            visibility: visible; /* Initially hidden */
+        }
+
+        /* Contact Links and Projects Links */
+        .contact a, .projects a {
+            color: #00aaff;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .contact a:hover, .projects a:hover {
+            text-decoration: underline;
+        }
+
+        /* Typewriter Effect */
+.typewriter {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: -15px;
+    margin-bottom: 25px;
+    opacity: 0;
+    visibility: hidden;
+    animation: slideInFromRight 1.5s ease-out 0.5s forwards, typing 4s steps(30) 2s forwards, blinkCaret 0.75s step-end infinite 6.5s;
+    font-style: italic;
+    height: 24px; /* Fixed height for typewriter text */
+    line-height: 24px; /* Match the line height */
+    overflow: hidden; /* Prevents overflow */
+    white-space: nowrap; /* Keeps text in a single line */
+}
+
+
+        /* Keyframe for Typing Effect */
+        @keyframes typing {
+            0% {
+                content: "";
+            }
+            100% {
+                content: "Tech Lover";
+            }
+        }
+
+        /* Keyframe Animation for Blinking Caret */
+        @keyframes blinkCaret {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                margin: 20px auto;
+            }
+
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Profile Picture -->
+        <img src="cropped.png" alt="Profile Picture" class="profile-pic">
+
+        <!-- Name -->
+        <h1 class="name">Gavin Cardeno</h1>
+
+        <!-- Typewriter Text -->
+        <p class="typewriter"></p>
+
+        <!-- Bio -->
+        <p class="typing">👋 Hello! I’m a Statistics and Data Science major at UCLA, with a passion for solving problems through programming and data analysis. I’m experienced in languages like C++, Python, C#, and SQL, and I enjoy using these skills to uncover insights and tackle challenges. I’m always looking for opportunities to learn, collaborate, and contribute to projects that make a real impact.</p>
+
+        <!-- Resume Button -->
+        <p><a href="Gavin Cardeno Resume.pdf" class="resume-btn" target="_blank">View My Resume</a></p>
+
+        <!-- Projects Section -->
+        <h2>Projects</h2>
+        <div class="projects">
+            <a href="https://github.com/gavincardeno/project1" target="_blank">Wine Data Classification (Logistic Regression & LDA)</a>
+            <a href="https://github.com/gavincardeno/project2" target="_blank">Heart Disease Prediction with Machine Learning</a>
+        </div>
+
+        <!-- Contact Section -->
+        <h2>Contact</h2>
+        <div class="contact">
+            <a>📧 mailto: hello@gavincardeno.com</a>
+            <a href="https://github.com/gavincardeno" target="_blank">💻 github.com/gavincardeno</a>
+            <a href="https://linkedin.com/in/gavincardeno" target="_blank">🔗 /in/gavincardeno</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to add typewriter effect content
+        window.onload = function() {
+            const typewriterText = ["Tech Lover", "Data Explorer", "UCLA Bruin", "Stats & Data Science Student", "Car Enthusiast", "Adventure Seeker"];
+            let currentIndex = 0;
+            const typewriterElement = document.querySelector('.typewriter');
+
+            function typeNextWord() {
+                const currentText = typewriterText[currentIndex];
+                let i = 0;
+                let typingInterval = setInterval(() => {
+                    typewriterElement.textContent += currentText[i];
+                    i++;
+                    if (i === currentText.length) {
+                        clearInterval(typingInterval);
+                        setTimeout(deleteText, 2500);  // Wait 2.5 second before deleting
+                    }
+                }, 80);  // Speed of typing
+
+                currentIndex = (currentIndex + 1) % typewriterText.length;
+            }
+
+            function deleteText() {
+                let i = typewriterElement.textContent.length;
+                let deletingInterval = setInterval(() => {
+                    typewriterElement.textContent = typewriterElement.textContent.slice(0, i - 1);
+                    i--;
+                    if (i === 0) {
+                        clearInterval(deletingInterval);
+                        setTimeout(typeNextWord, 500);  // Wait half a second before typing next word
+                    }
+                }, 50);  // Speed of deleting
+            }
+
+            typeNextWord();  // Start the typewriter effect
+        };
+    </script>
+
+</body>
+</html>
