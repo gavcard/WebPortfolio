@@ -111,8 +111,8 @@
             animation: slideInFromRight 1.5s ease-out 2.5s forwards; /* 3.5s delay */
         }
 
-        /* Header Animations */
-        h2 {
+        /* title size for "contact and project" */
+        .h2 {
             opacity: 1; /* Initially hidden */
             visibility: visible; /* Initially hidden */
         }
@@ -130,22 +130,27 @@
             text-decoration: underline;
         }
 
-        /* Typewriter Effect */
-.typewriter {
-    font-size: 18px;
-    font-weight: 500;
-    margin-top: -15px;
-    margin-bottom: 25px;
-    opacity: 0;
-    visibility: hidden;
-    animation: slideInFromRight 1.5s ease-out 0.5s forwards, typing 4s steps(30) 2s forwards, blinkCaret 0.75s step-end infinite 6.5s;
-    font-style: italic;
-    height: 24px; /* Fixed height for typewriter text */
-    line-height: 24px; /* Match the line height */
-    overflow: hidden; /* Prevents overflow */
-    white-space: nowrap; /* Keeps text in a single line */
-}
+        .project-summary {
+            font-size: 15px;
+            color: #ccc;
+            margin: -3px 17px 20px 17px;
+        }
 
+        /* Typewriter Effect */
+        .typewriter {
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: -15px;
+            margin-bottom: 25px;
+            opacity: 0;
+            visibility: hidden;
+            animation: slideInFromRight 1.5s ease-out 0.5s forwards, typing 4s steps(30) 2s forwards, blinkCaret 0.75s step-end infinite 6.5s;
+            font-style: italic;
+            height: 24px; /* Fixed height for typewriter text */
+            line-height: 24px; /* Match the line height */
+            overflow: hidden; /* Prevents overflow */
+            white-space: nowrap; /* Keeps text in a single line */
+        }
 
         /* Keyframe for Typing Effect */
         @keyframes typing {
@@ -177,6 +182,38 @@
             }
         }
 
+        .link-style {
+            font-size: 17px;
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            margin: 0px 0;
+            cursor: pointer;
+            font-size: 16px;
+            color: #00aaff;
+            text-decoration: none;
+            font-weight: lighter;
+        }
+
+        .dropdown-content {
+            display: none;
+            padding: 10px;
+            background-color: #333;
+            color: #ccc;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .heading {
+            font-size: 30px;
+        }
+        
+
     </style>
 </head>
 <body>
@@ -195,26 +232,43 @@
         <p class="typing">👋 Hello! I’m a Statistics and Data Science major at UCLA, with a passion for solving problems through programming and data analysis. I’m experienced in languages like C++, Python, C#, and SQL, and I enjoy using these skills to uncover insights and tackle challenges. I’m always looking for opportunities to learn, collaborate, and contribute to projects that make a real impact.</p>
 
         <!-- Resume Button -->
-        <p><a href="Gavin Cardeno Resume.pdf" class="resume-btn" target="_blank">View My Resume</a></p>
+        <p><a href="cardeno resume.pdf" class="resume-btn" target="_blank">View My Resume</a></p>
 
         <!-- Projects Section -->
-        <h2>Projects</h2>
+        <h2 class="heading">Projects</h2>
         <div class="projects">
-            <a href="https://github.com/gavincardeno/project1" target="_blank">Wine Data Classification (Logistic Regression & LDA)</a>
-            <a href="https://github.com/gavincardeno/project2" target="_blank">Heart Disease Prediction with Machine Learning</a>
+            <div class="dropdown">
+                <a href="101c.pdf" class="link-style" target="_blank">Predicting Obesity Status Using Machine Learning</a>
+                <div class="dropdown-content">
+                    Developed a machine learning model to predict obesity status using health data. Preprocessed the dataset, handled NA's, and compared models including Logistic Regression, LDA, QDA, Random Forest, and XGBoost, achieving 97.36% accuracy.
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="Effects on Wine Quality.pdf" class="link-style" target="_blank">Effects on Wine Quality</a>
+                <div class="dropdown-content">
+                    Analyzed factors influencing red wine quality using regression modeling. Applied variable transformations and subset selection to address multicollinearity, resulting in a model with proven key variables that predict wine quality effectively.
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="Stats 101B Presentation.pdf" class="link-style" target="_blank">Alcohol’s Effect on Coordination</a>
+                <div class="dropdown-content">
+                    Conducted an ANOVA study to examine the impact of alcohol consumption on balance test performance across genders.
+                </div>
+            </div>
         </div>
 
         <!-- Contact Section -->
-        <h2>Contact</h2>
+        <h2 class="heading">Contact</h2>
         <div class="contact">
-            <a>📧 mailto: hello@gavincardeno.com</a>
+            <a href="mailto:hello@gavincardeno.com">📧 hello@gavincardeno.com</a>
             <a href="https://github.com/gavincardeno" target="_blank">💻 github.com/gavincardeno</a>
             <a href="https://linkedin.com/in/gavincardeno" target="_blank">🔗 /in/gavincardeno</a>
         </div>
     </div>
 
     <script>
-        // JavaScript to add typewriter effect content
         window.onload = function() {
             const typewriterText = ["Tech Lover", "Data Explorer", "UCLA Bruin", "Stats & Data Science Student", "Car Enthusiast", "Adventure Seeker"];
             let currentIndex = 0;
@@ -225,7 +279,7 @@
                 let i = 0;
                 let typingInterval = setInterval(() => {
                     typewriterElement.textContent += currentText[i];
-                    i++;
+                    i++; 
                     if (i === currentText.length) {
                         clearInterval(typingInterval);
                         setTimeout(deleteText, 2500);  // Wait 2.5 second before deleting
